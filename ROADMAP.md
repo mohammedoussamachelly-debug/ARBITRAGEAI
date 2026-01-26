@@ -4,17 +4,17 @@
 
 ---
 
-### ✅ Completed Milestones
+### Completed Milestones
 
-- ✅ Set up Qdrant vector database and connected it to the embedding pipeline  
-- ✅ Implemented semantic search using SentenceTransformers (MiniLM)  
-- ✅ Built CLI interface for product retrieval with filtering by price and category  
-- ✅ Designed and tested product ingestion pipeline from CSV/JSON  
-- ✅ Embedded and indexed sample datasets (e.g., sneakers) into Qdrant  
-- ✅ Added ROI and liquidity metadata to product payloads  
-- ✅ Developed `vectorize.py` for batch embedding and indexing  
-- ✅ Created `main.py` as the application entry point  
-- ✅ Structured project into modular components (retrieval, embedding, UI, ingestion)
+- Set up Qdrant vector database and connected it to the embedding pipeline  
+- Implemented semantic search using SentenceTransformers (MiniLM)  
+- Built CLI interface for product retrieval with filtering by price and category  
+- Designed and tested product ingestion pipeline from CSV/JSON  
+- Embedded and indexed sample datasets (e.g., sneakers) into Qdrant  
+- Added ROI and liquidity metadata to product payloads  
+- Developed `vectorize.py` for batch embedding and indexing  
+- Created `main.py` as the application entry point  
+- Structured project into modular components (retrieval, embedding, UI, ingestion)
 
 ---
 
