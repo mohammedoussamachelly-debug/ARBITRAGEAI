@@ -1,0 +1,25 @@
+# Core Python Libraries
+pandas
+numpy
+requests
+python-dotenv
+
+# Machine Learning & Embeddings
+sentence-transformers
+scikit-learn
+xgboost
+torch
+
+# Vector Search
+qdrant-client
+
+# Image Processing & Visual Search
+Pillow
+opencv-python
+
+# Frontend & UI
+streamlit
+
+# Optional (for AR integration and 3D model handling)
+pythreejs
+pygltflib
