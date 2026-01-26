@@ -20,6 +20,6 @@ opencv-python
 # Frontend & UI
 streamlit
 
-# Optional (for AR integration and 3D model handling)
+for AR integration and 3D model handling
 pythreejs
 pygltflib
