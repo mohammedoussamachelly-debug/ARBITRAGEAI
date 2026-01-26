@@ -1,6 +1,6 @@
 from qdrant_client import QdrantClient
 from qdrant_client.models import Filter, FieldCondition, MatchValue
-from vectorizer import get_embedding
+from vectorize import get_embedding
 import argparse
 
 # Connect to Qdrant
@@ -40,3 +40,4 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     search_products(args.query, args.collection, args.top_k, args.category)
+
