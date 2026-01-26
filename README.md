@@ -30,17 +30,4 @@
 
 ---
 
-## Project Structure
-ARBITRAGEAI/
-├── src/
-│   ├── main.py                # Application entry point
-│   ├── retrieve.py            # CLI entry point for semantic search
-│   ├── vectorize.py           # Batch embedding and indexing logic
-│   ├── qdrant_utils.py       # Vector DB logic and filtering
-│   ├── embed.py               # Text embedding logic (MiniLM)
-│   ├── ingest.py              # Batch ingestion from CSV/JSON
-│   └── ui/                   # Streamlit frontend
-├── data/                     # Sample product datasets
-├── roadmap.md                 # Strategic development plan
-├── requirements.txt           # Python dependencies
-└── README.md                  # Project overview
+
