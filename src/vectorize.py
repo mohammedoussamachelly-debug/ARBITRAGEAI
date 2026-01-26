@@ -1,43 +1,68 @@
+import argparse
+import os
+from dotenv import load_dotenv
+from qdrant_client import QdrantClient
+from qdrant_client.models import Filter, FieldCondition, Range, MatchValue
+from vectorizer import get_embedding
 
-from sentence_transformers import SentenceTransformer
+load_dotenv()
 
-class ProductVectorizer:
-    def __init__(self, model=None, model_name="sentence-transformers/all-MiniLM-L6-v2"):
-        """
-        Initialize the embedding model. You can pass a preloaded model or a model name.
-        """
-        self.model = model or SentenceTransformer(model_name)
+QDRANT_HOST = os.getenv("QDRANT_HOST")
+QDRANT_PORT = int(os.getenv("QDRANT_PORT"))
+QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
 
-    def encode_visual(self, description: str) -> list:
-        """
-        Generate a visual embedding from a product description.
-        """
-        if not description or not isinstance(description, str):
-            raise ValueError("Product description must be a non-empty string.")
-        return self.model.encode(description).tolist()
+client = QdrantClient(
+    url=QDRANT_HOST,
+    port=QDRANT_PORT,
+    api_key=QDRANT_API_KEY,
+    https=True
+)
 
-    def build_payload(self, name: str, market_data: dict) -> dict:
-        """
-        Combine product name and market metadata into a payload.
-        """
-        if not name or not isinstance(name, str):
-            raise ValueError("Product name must be a non-empty string.")
-        if not isinstance(market_data, dict):
-            raise ValueError("Market data must be a dictionary.")
-        return {
-            "name": name,
-            **market_data
-        }
+def build_filter(category=None, min_price=None, max_price=None):
+    conditions = []
+    if category:
+        conditions.append(FieldCondition(key="category", match=MatchValue(value=category)))
+    if min_price is not None or max_price is not None:
+        price_range = {}
+        if min_price is not None:
+            price_range["gte"] = float(min_price)
+        if max_price is not None:
+            price_range["lte"] = float(max_price)
+        conditions.append(FieldCondition(key="price", range=Range(**price_range)))
+    return Filter(must=conditions) if conditions else None
 
-    def vectorize_product(self, product: dict) -> tuple:
-        """
-        Given a product dict with 'name', 'visual_description', and 'market_payload',
-        return (vector, payload) tuple.
-        """
-        required_keys = {"name", "visual_description", "market_payload"}
-        if not required_keys.issubset(product.keys()):
-            raise KeyError(f"Product must contain keys: {required_keys}")
+def search_products(query: str, collection: str, top_k: int = 5, category: str = None, min_price=None, max_price=None):
+    vector = get_embedding(query)
+    query_filter = build_filter(category, min_price, max_price)
 
-        vector = self.encode_visual(product["visual_description"])
-        payload = self.build_payload(product["name"], product["market_payload"])
-        return vector, payload
+    results = client.search(
+        collection_name=collection,
+        query_vector=vector,
+        limit=top_k,
+        query_filter=query_filter
+    )
+
+    print(f"\n🔎 Top {top_k} results for: '{query}' in '{collection}'\n")
+    for i, hit in enumerate(results, 1):
+        payload = hit.payload
+        print(f"{i}. {payload['name']} — ${payload['price']:.2f} [{payload['category']}]")
+        print(f"   {payload['description']}\n")
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--query", type=str, required=True)
+    parser.add_argument("--collection", type=str, required=True)
+    parser.add_argument("--top_k", type=int, default=5)
+    parser.add_argument("--category", type=str)
+    parser.add_argument("--min_price", type=float)
+    parser.add_argument("--max_price", type=float)
+
+    args = parser.parse_args()
+    search_products(
+        query=args.query,
+        collection=args.collection,
+        top_k=args.top_k,
+        category=args.category,
+        min_price=args.min_price,
+        max_price=args.max_price
+    )
