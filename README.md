@@ -1,13 +1,14 @@
 # ArbitrageAI
 
-**ArbitrageAI** is a full-stack investment-driven product discovery application that integrates artificial intelligence to help users identify high-ROI consumer goods across multiple e-commerce platforms. It combines semantic search, financial intelligence, real-time market data, and augmented reality to transform everyday shopping into a strategic investment experience. In addition to intelligent search and investment scoring, ArbitrageAI enables users to preview products in their real-world environment using augmented reality (AR), bridging the gap between online discovery and physical experience.
+**ArbitrageAI** is a full-stack investment-driven product discovery application that integrates artificial intelligence to help users identify high-ROI consumer goods across multiple e-commerce platforms. It combines semantic search, financial intelligence, real-time market data, and augmented reality to transform everyday shopping into a strategic investment experience. In addition to intelligent search and investment scoring, ArbitrageAI enables users to preview products in their real-world environment using augmented reality (AR), bridging the gap between online discovery and physical experience.It combines semantic search, financial intelligence, real-time market data, and augmented reality to transform everyday shopping into a strategic investment experience. Even without a query, ArbitrageAI displays curated product recommendations to engage users from the start.
 
 ---
 
 ## Features
 
 - Semantic product search using natural language queries
-- Price, ROI, liquidity, and volatility filtering
+-- Default product recommendations shown without user input
+-  Price, ROI, liquidity, and volatility filtering
 - Real-time resale market data injection
 - Batch ingestion of multi-domain product datasets (e.g., sneakers, watches, furniture)
 - Streamlit UI with semantic search bar, filters, and product cards
