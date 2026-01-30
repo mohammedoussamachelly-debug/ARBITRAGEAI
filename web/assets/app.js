@@ -24,43 +24,48 @@ function renderResultCard(item, idx) {
 
   const modelSection = glb
     ? `
-      <div class="mt-4">
-        <div class="text-sm font-semibold text-slate-200">3D / AR</div>
-        <div class="mt-2 overflow-hidden rounded-xl border border-slate-800">
+      <div class="mt-5">
+        <div class="text-sm font-semibold text-slate-200">3D / AR Preview</div>
+        <div class="mt-3 overflow-hidden rounded-2xl border border-white/5">
           <model-viewer
             src="${escapeHtml(glb)}"
             ar
             ar-modes="scene-viewer webxr quick-look"
             camera-controls
             auto-rotate
-            exposure="1"
-            shadow-intensity="0.8"
-            style="width: 100%; height: 420px;"
+            exposure="1.2"
+            shadow-intensity="1"
+            style="width: 100%; height: 380px;"
           ></model-viewer>
         </div>
-        <div class="mt-2 text-xs text-slate-400">Tip: open on mobile, tap AR.</div>
+        <div class="mt-3 text-xs text-slate-400">💡 Open on mobile and tap AR button to view in your space</div>
       </div>
     `
     : `
-      <div class="mt-4 rounded-xl border border-amber-800/60 bg-amber-900/10 px-4 py-3 text-sm text-amber-200">
-        AR model not available.
+      <div class="mt-4 rounded-xl border border-amber-700/50 bg-amber-900/20 px-4 py-3 text-sm text-amber-300">
+        ⚠️ AR model not available for this product
       </div>
     `;
 
   return `
-    <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
+    <article class="group overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-slate-900/80 to-slate-800/80 p-6 shadow-lg backdrop-blur transition hover:border-purple-500/30 hover:shadow-2xl hover:shadow-purple-500/20">
       <div class="flex items-start justify-between gap-4">
-        <div>
-          <div class="text-sm text-slate-400">#${idx + 1}</div>
-          <h2 class="mt-1 text-xl font-bold text-slate-100">${name}</h2>
-          <div class="mt-2 text-sm text-slate-300">${desc}</div>
+        <div class="flex-1">
+          <div class="inline-flex items-center gap-2 rounded-full border border-purple-500/30 bg-purple-500/10 px-3 py-1 text-xs font-semibold text-purple-300">
+            #${idx + 1}
+          </div>
+          <h2 class="mt-3 text-2xl font-extrabold text-white">${name}</h2>
+          <p class="mt-2 text-sm leading-relaxed text-slate-300">${desc}</p>
         </div>
         <div class="shrink-0 text-right">
-          <div class="rounded-full border border-slate-700 bg-slate-950/30 px-3 py-1 text-xs font-semibold text-slate-200">${category || "N/A"}</div>
-          <div class="mt-2 text-lg font-extrabold text-white">${price}</div>
+          <div class="rounded-xl border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-slate-200">${category || "N/A"}</div>
+          <div class="mt-3 text-3xl font-extrabold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">${price}</div>
         </div>
       </div>
       ${modelSection}
+      <button class="mt-5 w-full rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 px-6 py-3 font-semibold text-white shadow-lg shadow-purple-500/20 transition hover:scale-105 hover:shadow-purple-500/40">
+        Add to Cart
+      </button>
     </article>
   `;
 }
