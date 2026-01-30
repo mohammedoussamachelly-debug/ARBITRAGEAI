@@ -1,25 +1,34 @@
 # ArbitrageAI
 
-A project for arbitrage analysis using AI and vector search with Qdrant.
+**ArbitrageAI** is a full-stack investment-driven product discovery application that integrates artificial intelligence to help users identify high-ROI consumer goods across multiple e-commerce platforms. It combines semantic search, financial intelligence, real-time market data, and augmented reality to transform everyday shopping into a strategic investment experience. In addition to intelligent search and investment scoring, ArbitrageAI enables users to preview products in their real-world environment using augmented reality (AR), bridging the gap between online discovery and physical experience.It combines semantic search, financial intelligence, real-time market data, and augmented reality to transform everyday shopping into a strategic investment experience. Even without a query, ArbitrageAI displays curated product recommendations to engage users from the start.
 
-## Setup
+---
 
-1. Install dependencies: `pip install -r requirements.txt`
-2. Set up Qdrant (cloud or local).
-3. Add credentials to `.env`.
-4. Run `python src/main.py` to load data.
-5. Run `python src/retrieve.py --query "your query" --collection "collection_name"` to search.
+## Features
 
-## Files
+- Semantic product search using natural language queries
+-- Default product recommendations shown without user input
+-  Price, ROI, liquidity, and volatility filtering
+- Real-time resale market data injection
+- Batch ingestion of multi-domain product datasets (e.g., sneakers, watches, furniture)
+- Streamlit UI with semantic search bar, filters, and product cards
+- Image-based product search using visual embeddings (CLIP)
+- Real-life product visualization using ARKit (iOS) and ARCore (Android)
+- Smart investment scoring using rule-based and ML models
 
-- `src/main.py`: Data ingestion
-- `src/retrieve.py`: Search interface
-- `src/vectorize.py`: Embedding utilities
-- `src/qdrant_utils.py`: Qdrant helpers
-- `notebook/demo.ipynb`: Demo notebook
+---
 
-## Roadmap
+## Tech Stack
 
-- [ ] Add web interface
-- [ ] Support more data sources
-- [ ] Improve search accuracy
+- **Programming Language**: Python  
+- **Vector Search Engine**: Qdrant  
+- **Text Embedding Model**: SentenceTransformers (MiniLM)  
+- **Visual Embedding Model**: CLIP  
+- **Frontend Framework**: Streamlit  
+- **Augmented Reality**: ARKit (iOS), ARCore (Android)  
+- **External APIs**: eBay API, StockX API  
+- **Machine Learning**: XGBoost, regression models for resale prediction  
+
+---
+
+
