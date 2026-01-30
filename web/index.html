@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ArbitrageAI — Product Search + AR</title>
+
+    <meta name="description" content="ArbitrageAI helps you find products faster with semantic search and visualize them in 3D/AR." />
+    <meta name="theme-color" content="#0B1220" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+    <style>
+      model-viewer { background: #0b1220; }
+    </style>
+  </head>
+  <body class="min-h-screen bg-slate-950 text-slate-100">
+    <div class="pointer-events-none fixed inset-0 -z-10">
+      <div class="absolute -top-24 left-1/2 h-[520px] w-[920px] -translate-x-1/2 rounded-full bg-gradient-to-r from-indigo-600/30 via-fuchsia-600/25 to-cyan-600/20 blur-3xl"></div>
+    </div>
+
+    <header class="sticky top-0 z-20 border-b border-slate-800/70 bg-slate-950/70 backdrop-blur">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+        <a href="#" class="flex items-center gap-3">
+          <div class="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-indigo-500 to-pink-500 text-lg font-black">A</div>
+          <div>
+            <div class="text-sm font-extrabold tracking-tight">ArbitrageAI</div>
+            <div class="text-xs text-slate-400">Search + 3D/AR</div>
+          </div>
+        </a>
+
+        <nav class="hidden items-center gap-6 text-sm text-slate-300 md:flex">
+          <a class="hover:text-white" href="#features">Features</a>
+          <a class="hover:text-white" href="#demo">Live demo</a>
+          <a class="hover:text-white" href="#pricing">Pricing</a>
+          <a class="hover:text-white" href="#faq">FAQ</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <a href="#demo" class="hidden rounded-xl border border-slate-800 bg-slate-900/30 px-4 py-2 text-sm font-semibold text-slate-200 hover:bg-slate-900 md:inline-flex">Try demo</a>
+          <a href="#contact" class="rounded-xl bg-indigo-500 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-400">Contact</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-4 pb-16 pt-10">
+      <!-- HERO -->
+      <section class="grid items-center gap-10 md:grid-cols-2">
+        <div>
+          <div class="inline-flex items-center gap-2 rounded-full border border-slate-800 bg-slate-900/30 px-3 py-1 text-xs font-semibold text-slate-200">
+            <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+            Semantic search + AR-ready product experiences
+          </div>
+
+          <h1 class="mt-4 text-4xl font-extrabold tracking-tight md:text-5xl">
+            Build a premium shopping experience
+            <span class="bg-gradient-to-r from-indigo-400 to-pink-400 bg-clip-text text-transparent">in days</span>
+          </h1>
+          <p class="mt-4 text-lg leading-relaxed text-slate-300">
+            ArbitrageAI helps customers find products by intent (not just keywords) and preview items in 3D/AR.
+            Perfect for marketplaces, brand storefronts, and product catalogs.
+          </p>
+
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#demo" class="rounded-xl bg-indigo-500 px-6 py-3 font-semibold text-white hover:bg-indigo-400">Explore the demo</a>
+            <a href="#features" class="rounded-xl border border-slate-800 bg-slate-900/30 px-6 py-3 font-semibold text-slate-200 hover:bg-slate-900">See features</a>
+          </div>
+
+          <div class="mt-8 grid grid-cols-3 gap-4">
+            <div class="rounded-2xl border border-slate-800 bg-slate-900/30 p-4">
+              <div class="text-2xl font-extrabold">2×</div>
+              <div class="mt-1 text-xs text-slate-400">faster discovery</div>
+            </div>
+            <div class="rounded-2xl border border-slate-800 bg-slate-900/30 p-4">
+              <div class="text-2xl font-extrabold">AR</div>
+              <div class="mt-1 text-xs text-slate-400">mobile ready</div>
+            </div>
+            <div class="rounded-2xl border border-slate-800 bg-slate-900/30 p-4">
+              <div class="text-2xl font-extrabold">Qdrant</div>
+              <div class="mt-1 text-xs text-slate-400">vector search</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/30 p-5">
+          <div class="text-sm font-semibold text-slate-200">Featured 3D preview</div>
+          <div class="mt-3 overflow-hidden rounded-2xl border border-slate-800">
+            <model-viewer
+              src="/models/nike_air_max.glb"
+              ar
+              ar-modes="scene-viewer webxr quick-look"
+              camera-controls
+              auto-rotate
+              exposure="1"
+              shadow-intensity="0.8"
+              style="width: 100%; height: 420px;"
+            ></model-viewer>
+          </div>
+          <div class="mt-3 text-xs text-slate-400">Open on mobile and tap AR to try it in your space.</div>
+        </div>
+      </section>
+
+      <!-- SOCIAL PROOF -->
+      <section class="mt-14 rounded-3xl border border-slate-800 bg-slate-900/20 p-6">
+        <div class="grid gap-4 md:grid-cols-3">
+          <div class="rounded-2xl border border-slate-800 bg-slate-900/30 p-5">
+            <div class="text-sm font-semibold">Conversion-friendly</div>
+            <div class="mt-1 text-sm text-slate-300">Cleaner discovery funnels with intent search.</div>
+          </div>
+          <div class="rounded-2xl border border-slate-800 bg-slate-900/30 p-5">
+            <div class="text-sm font-semibold">AR makes it real</div>
+            <div class="mt-1 text-sm text-slate-300">Preview products in 3D/AR on mobile instantly.</div>
+          </div>
+          <div class="rounded-2xl border border-slate-800 bg-slate-900/30 p-5">
+            <div class="text-sm font-semibold">Fast to integrate</div>
+            <div class="mt-1 text-sm text-slate-300">API-first backend with a lightweight frontend.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURES -->
+      <section id="features" class="mt-16">
+        <div class="flex items-end justify-between gap-6">
+          <div>
+            <h2 class="text-2xl font-extrabold">Features built for modern commerce</h2>
+            <p class="mt-2 text-slate-300">Everything you need to feel like a big marketplace—without the complexity.</p>
+          </div>
+        </div>
+
+        <div class="mt-6 grid gap-5 md:grid-cols-3">
+          <div class="rounded-3xl border border-slate-800 bg-slate-900/30 p-6">
+            <div class="text-sm font-semibold">Semantic search</div>
+            <p class="mt-2 text-sm text-slate-300">Find items with natural language like “olive running shoe” or “premium basketball sneaker”.</p>
+          </div>
+          <div class="rounded-3xl border border-slate-800 bg-slate-900/30 p-6">
+            <div class="text-sm font-semibold">AR product viewer</div>
+            <p class="mt-2 text-sm text-slate-300">One-tap AR on supported phones via model-viewer and WebXR.</p>
+          </div>
+          <div class="rounded-3xl border border-slate-800 bg-slate-900/30 p-6">
+            <div class="text-sm font-semibold">Scalable vector DB</div>
+            <p class="mt-2 text-sm text-slate-300">Backed by Qdrant for fast, relevant retrieval at scale.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- DEMO -->
+      <section id="demo" class="mt-16">
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/30 p-6">
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <h2 class="text-2xl font-extrabold">Live demo</h2>
+              <p class="mt-1 text-slate-300">Search the catalog and open the AR viewer right here.</p>
+            </div>
+            <div id="status" class="text-sm text-slate-300"></div>
+          </div>
+
+          <div class="mt-6 grid gap-4 md:grid-cols-4">
+            <div class="md:col-span-2">
+              <label class="text-sm text-slate-300">Search</label>
+              <input
+                id="query"
+                class="mt-1 w-full rounded-xl border border-slate-700 bg-slate-950/40 px-4 py-3 outline-none ring-indigo-500 focus:ring-2"
+                placeholder="Try: nike, air max 90, basketball shoe"
+                autocomplete="off"
+              />
+            </div>
+
+            <div>
+              <label class="text-sm text-slate-300">Collection</label>
+              <select
+                id="collection"
+                class="mt-1 w-full rounded-xl border border-slate-700 bg-slate-950/40 px-4 py-3 outline-none ring-indigo-500 focus:ring-2"
+              >
+                <option value="nike_shoes" selected>Nike Shoes</option>
+                <option value="clothing">Clothing</option>
+                <option value="watches">Watches</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="text-sm text-slate-300">Top K</label>
+              <select
+                id="topk"
+                class="mt-1 w-full rounded-xl border border-slate-700 bg-slate-950/40 px-4 py-3 outline-none ring-indigo-500 focus:ring-2"
+              >
+                <option>3</option>
+                <option selected>5</option>
+                <option>8</option>
+                <option>10</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mt-4 flex flex-wrap items-center gap-3">
+            <button
+              id="searchBtn"
+              class="rounded-xl bg-indigo-500 px-5 py-3 font-semibold text-white hover:bg-indigo-400"
+            >
+              Search
+            </button>
+            <button
+              id="clearBtn"
+              class="rounded-xl border border-slate-700 bg-slate-950/40 px-5 py-3 font-semibold text-slate-200 hover:bg-slate-900"
+            >
+              Clear
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-6" aria-live="polite">
+          <div id="results" class="grid gap-5 md:grid-cols-2"></div>
+        </div>
+      </section>
+
+      <!-- PRICING -->
+      <section id="pricing" class="mt-16">
+        <h2 class="text-2xl font-extrabold">Pricing</h2>
+        <p class="mt-2 text-slate-300">Simple tiers for a storefront, a marketplace, or an enterprise rollout.</p>
+
+        <div class="mt-6 grid gap-5 md:grid-cols-3">
+          <div class="rounded-3xl border border-slate-800 bg-slate-900/30 p-6">
+            <div class="text-sm font-semibold">Starter</div>
+            <div class="mt-2 text-3xl font-extrabold">$0</div>
+            <div class="mt-1 text-sm text-slate-400">Prototype & demo</div>
+            <ul class="mt-4 space-y-2 text-sm text-slate-300">
+              <li>• Search + AR viewer</li>
+              <li>• Local model hosting</li>
+              <li>• Basic catalog</li>
+            </ul>
+          </div>
+
+          <div class="rounded-3xl border border-indigo-500/40 bg-indigo-500/10 p-6">
+            <div class="text-sm font-semibold text-indigo-200">Growth</div>
+            <div class="mt-2 text-3xl font-extrabold">Custom</div>
+            <div class="mt-1 text-sm text-slate-300">Brand storefronts</div>
+            <ul class="mt-4 space-y-2 text-sm text-slate-200">
+              <li>• Custom design system</li>
+              <li>• Analytics-ready events</li>
+              <li>• Multiple collections</li>
+            </ul>
+          </div>
+
+          <div class="rounded-3xl border border-slate-800 bg-slate-900/30 p-6">
+            <div class="text-sm font-semibold">Enterprise</div>
+            <div class="mt-2 text-3xl font-extrabold">Custom</div>
+            <div class="mt-1 text-sm text-slate-400">Marketplaces at scale</div>
+            <ul class="mt-4 space-y-2 text-sm text-slate-300">
+              <li>• SSO & roles</li>
+              <li>• Multi-tenant catalogs</li>
+              <li>• Dedicated infrastructure</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="mt-16">
+        <h2 class="text-2xl font-extrabold">FAQ</h2>
+        <div class="mt-6 space-y-3">
+          <details class="rounded-2xl border border-slate-800 bg-slate-900/30 p-5">
+            <summary class="cursor-pointer text-sm font-semibold">Does this work on mobile AR?</summary>
+            <p class="mt-2 text-sm text-slate-300">Yes—open the site on a supported mobile device and tap the AR button in the 3D viewer.</p>
+          </details>
+          <details class="rounded-2xl border border-slate-800 bg-slate-900/30 p-5">
+            <summary class="cursor-pointer text-sm font-semibold">Where does search come from?</summary>
+            <p class="mt-2 text-sm text-slate-300">The backend calls your Qdrant vector DB using embeddings for intent-based retrieval.</p>
+          </details>
+          <details class="rounded-2xl border border-slate-800 bg-slate-900/30 p-5">
+            <summary class="cursor-pointer text-sm font-semibold">Can we customize the design like a big marketplace?</summary>
+            <p class="mt-2 text-sm text-slate-300">Yes—this page is a clean marketing template. We can add categories, deals, banners, and a full catalog UI next.</p>
+          </details>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="mt-16">
+        <div class="rounded-3xl border border-slate-800 bg-gradient-to-r from-indigo-500/15 to-pink-500/15 p-6">
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <h2 class="text-2xl font-extrabold">Ready to make it marketplace-grade?</h2>
+              <p class="mt-2 text-slate-300">Next we can add categories, product pages, carts, and a real catalog CMS.</p>
+            </div>
+            <a href="#demo" class="rounded-xl bg-indigo-500 px-6 py-3 font-semibold text-white hover:bg-indigo-400">Try demo</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-slate-800/70 bg-slate-950">
+      <div class="mx-auto max-w-6xl px-4 py-10">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div class="text-sm text-slate-400">ArbitrageAI © 2026</div>
+          <div class="text-sm text-slate-400">Built with FastAPI + Qdrant + Tailwind + model-viewer</div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/assets/app.js"></script>
+  </body>
+</html>
